@@ -36,3 +36,8 @@ img{
     bottom: 100px;
     left: 40px;
 }
+.ribbon{
+    float: right;
+    bottom: 18px;
+    left: 8px
+}
