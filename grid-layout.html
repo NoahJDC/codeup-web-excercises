@@ -3,23 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Grid Layout</title>
+    <link rel="stylesheet" href="css/grid-layout.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <aside class="column one-half">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dicta doloremque ipsam laboriosam provident quasi repellendus velit voluptatibus. Consequuntur dicta dolor iste natus officiis perspiciatis provident quisquam repellat reprehenderit sed!
-    </aside>
+    <div class="row">
+        <aside class="column one-half">1/2</aside>
+        <aside class="column one-half">1/2</aside>
+    </div>
     <main>
-        <section class="column one-third">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores eligendi eveniet illo incidunt inventore, ipsam itaque, iure minus molestiae neque nobis obcaecati perspiciatis placeat qui reprehenderit sed sint tempore?
-        </section>
-        <section class="column one-fourth">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deleniti dolore eaque et facilis illo illum laborum libero magnam, maiores nemo nesciunt non obcaecati recusandae repudiandae rerum sunt vitae voluptas?
-        </section>
+        <div class="row">
+            <section class="column one-third">1/3</section>
+            <section class="column one-third">1/3</section>
+            <section class="column one-third">1/3</section>
+        </div>
+
+        <div class="row">
+            <section class="column one-fourth">1/4</section>
+            <section class="column one-fourth">1/4</section>
+            <section class="column one-fourth">1/4</section>
+            <section class="column one-fourth">1/4</section>
+        </div>
+        <div class="row">
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+            <p class="column one-eigth">1/8</p>
+        </div>
     </main>
-    <footer>
-        <p class="column one-eigth">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam dolorem illum laboriosam neque porro reprehenderit! Amet error eveniet magni omnis quidem? Aut consequatur cum eos eveniet hic numquam quasi!
-        </p>
+    <footer class="row">
+        <div class="column two-third">1/4</div>
+        <div class="column three-eigth">1/2</div>
+        <div class="column two-fourth">1/8</div>
+        <div class="column three-sixth">1/8</div>
     </footer>
 
 </body>
