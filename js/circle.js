@@ -5,7 +5,7 @@
     var circle = {
         radius: 3,
         getArea: function () {
-            return Math.PI * this.radius * this.radius;
+            return Math.PI * (this.radius * this.radius);
         },
         logInfo: function (doRounding) {
             if(doRounding) {
@@ -43,12 +43,6 @@
 
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
-
-
-
-/* BONUS */
-
-
 
 
 }]
