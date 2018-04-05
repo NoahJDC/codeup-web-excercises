@@ -25,15 +25,31 @@
 </div>
 <script>
     "use strict";
-    //
+    //==========SELECTORS EXERCISE==============//
     // var contents = $('#title').html();
     // alert(contents);
     // $(".codeup").css('border', '1px solid red');
-    $("li").css('font-size', '20px');
-    $('li, p, h1').css('background-color', 'yellow')
-    var call = $('h1').html();
-    alert(call);
+    // $("li").css('font-size', '20px');
+    // $('li, p, h1').css('background-color', 'yellow')
+    // var call = $('h1').html();
+    // alert(call);
 
+    //==========EVENTS====================//
+    $("h1").click(function(){
+        $(this).css('background-color','blue');
+    });
+
+    $("p").dblclick(function(){
+        $(this).css('font-size', '18px');
+    });
+    $('li').hover(
+        function() {
+            $(this).css('background-color', '#FF0');
+        },
+        function() {
+            $(this).css('background-color', '#FFF');
+        }
+    );
 </script>
 </body>
 </html>
