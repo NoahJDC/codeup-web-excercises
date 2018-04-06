@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Konami Code</title>
 </head>
 <body>
-$END$
+<h1>Konami Code</h1>
+<form>
+    <!--<input type="text" id="codeInput" name="textfield" placeholder="Enter Cheat Code: "/>-->
+</form>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    // $(document).keyup(function(event){
+    //     console.log(event.keyCode);
+    // });
+
+
+
+        var input = '';
+        var konamiCode = '3838404037393739666513';
+        var sound = new Audio('audio/button-2.mp3');
+        $(document).keydown(function(e){
+            input += ("" + e.keyCode);
+            if (e.keyCode === 13) {
+                if (input === konamiCode) {
+                    alert('you have 30 lives!');
+                    $("body").css('background-color', 'green');
+                    sound.play();
+                    input = '';
+                }
+                else {
+                    alert('Incorrect Cheat Code ');
+                    input = '';
+                }
+            }
+        });
+
+
+
+
+</script>
 </body>
 </html>
