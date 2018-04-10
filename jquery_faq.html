@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Nation Parks</title>
     <style>
         .invisible{
             display: none;
         }
+        .highlight{
+            background-color: yellow;
+        }
+
+
     </style>
 </head>
 <body>
@@ -38,20 +44,60 @@
         <dd>The largest living
             things in the world are in National Parks: Sequoia trees and Alaskan brown bears (the world’s largest living carnivores).
         </dd>
-        <button>Show Facts</button>
+        <button class="facts">Show Facts</button>
+        <h1>FAQ</h1>
+        <div>
+            <h3>Acadia</h3>
+            <ul>
+            <li>Location: Maine</li>
+            <li>Established: Feb 26 1919</li>
+            <li>49,075.26 acres </li>
+            <li>Covering most of Mount Desert Island and other coastal islands, Acadia features the tallest mountain on the Atlantic coast of the United States, granite peaks, ocean shoreline, woodlands, and lakes. There are freshwater, estuary, forest, and intertidal habitat</li>
+            </ul>
+            <h3>Badlands</h3>
+            <ul>
+            <li>Location: South Dakota</li>
+            <li>Established: Nov 10 1978</li>
+            <li>242,755.94 acres </li>
+            <li>The Badlands are a collection of buttes, pinnacles, spires, and mixed-grass prairies. The White River Badlands contain the largest assemblage of known late Eocene and Oligocene mammal fossils. The wildlife includes bison, bighorn sheep, black-footed ferrets, and prairie dogs</li>
+            </ul>
+            <h3>Canyonlands</h3>
+            <ul>
+            <li>Location: Utah</li>
+            <li>Established: Sept 12, 1964</li>
+            <li>September 12, 1964</li>
+            <li>This landscape was eroded into a maze of canyons, buttes, and mesas by the combined efforts of the Colorado River, Green River, and their tributaries, which divide the park into three districts. The park also contains rock pinnacles and arches, as well as artifacts from Ancient Pueblo peoples.</li>
+            </ul>
+        </div>
     </dl>
+    <button class="hiLight">Highlight</button>
     <script src="js/jquery-2.2.4.js"></script>
     <script>
         "use strict";
 
         $('dd').addClass('invisible');
-        $("button").click(function(){
+        $(".facts").click(function(){
             $("dd").toggleClass('invisible');
         });
         $('dt').click(function(){
             $(this).css('background-color','yellow');
-        })
+        });
         // $('.invisible').css('display', 'none');
+
+        $(".hiLight").click(function(){
+        $("ul").each(function(index, element){
+            $(this).children().last().toggleClass('highlight')
+        });
+        });
+
+        $('h3').click(function(){
+            $(this).next().children().css('font-weight', 'bold');
+        });
+        $("li").click(function() {
+            $(this).parent().children().first().css('color', 'blue');
+        });
+
+
     </script>
 </div>
 </body>
