@@ -26,13 +26,20 @@
 <body>
 <div class="container">
     <h1>Weather Application</h1>
-    <h2>San Antonio</h2>
+    <h2 id="cityName"></h2>
     <div class="row">
         <div class="col-sm border day_one"></div>
         <div class="col-sm border day_two"></div>
         <div class="col-sm border day_three"></div>
     </div>
-    <div id="map_canvas" class="col-lg"></div>
+    <div class="row">
+        <div id="map_canvas" class="col-lg"></div>
+    </div>
+    <div class="row">
+    <!--<button>Enter Coordinates</button>-->
+    <!--<input type="text" id="lat" placeholder="lat">-->
+    <!--<input type="text" id="lon" placeholder="lon    ">-->
+    <!--</div>-->
 </div>
 <script src="js/jquery-2.2.4.js"></script>
 <script>
@@ -40,13 +47,14 @@
     $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
         APPID: "8f32c0149a278cdb5f995fbb3d98eba5",
         lat:    29.423017, //hard-coded, google maps API
-        lon:   -98.48527, //lng
+        lon:   -98.48527,
         units: "imperial",
         cnt: 3
     }).done(function(response) {
         console.log(response);
         console.log(response.list[0].temp.max);
         console.log(response.list[0].temp.min);
+        $('#cityName').text(response.city.name);
         $(".day_one").append(response.list[0].temp.day + " / " + response.list[1].temp.max + "<br>" +
             "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png'" + "</p>" + "<br>" +
             "<b>"+ "Clouds: " + "</b>" + response.list[0].weather[0].description + "<br>" +
@@ -66,25 +74,65 @@
             "<b>"+ "Wind: " + "</b>" + response.list[2].speed + "<br>" +
             "<b>"+ "Pressure: "+ "</b>" + response.list[2].pressure);
     });
-
-
-
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD998aCaoKZY5EL4Xx9FaV6iLpwE2QkoT0"></script>
-    <script type="text/javascript">
-        (function() {
-            "use strict";
-            var mapOptions = {
-                zoom: 5,
-                center: {
-                    lat:  29.426791,
-                    lng: -98.489602
-                }
-            };
-            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-        })();
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD998aCaoKZY5EL4Xx9FaV6iLpwE2QkoT0"></script>
+
+    <script>
+    var mapOptions = {
+        zoom: 5,
+        center: {
+            lat:  29.426791,
+            lng: -98.489602
+        }
+    };
+
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    var codeup = { lat: 29.426791, lng: -98.489602 };
+    var marker = new google.maps.Marker({
+        position: codeup,
+        map: map,
+        draggable: true
+    });
+    marker.addListener("dragend", function() {
+        console.log("hello");
+        $("#cityName").empty();
+        $(".day_one").empty();
+        $(".day_two").empty();
+        $(".day_three").empty();
+        var longitude = marker.position.lng();
+        var latitude = marker.position.lat();
+        $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+            APPID: "8f32c0149a278cdb5f995fbb3d98eba5",
+            lat:    latitude, //hard-coded, google maps API
+            lon:    longitude, //lng
+            units: "imperial",
+            cnt: 3
+        }).done(function(response) {
+            console.log(response);
+            console.log(response.list[0].temp.max);
+            console.log(response.list[0].temp.min);
+            $('#cityName').text(response.city.name)
+            $(".day_one").append(response.list[0].temp.day + " / " + response.list[1].temp.max + "<br>" +
+                "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png'" + "</p>" + "<br>" +
+                "<b>"+ "Clouds: " + "</b>" + response.list[0].weather[0].description + "<br>" +
+                "<b>"+ "Humidity: "+ "</b>" + response.list[0].humidity + "<br>" +
+                "<b>"+ "Wind: " + "</b>" + response.list[0].speed + "<br>" +
+                "<b>"+ "Pressure: "+ "</b>" + response.list[0].pressure);
+            $(".day_two").append(response.list[1].temp.day + " / " + response.list[1].temp.max + "<br>" +
+                "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[1].weather[0].icon + ".png'" + "</p>" + "<br>" +
+                "<b>"+ "Clouds: " + "</b>" + response.list[1].weather[0].description + "<br>" +
+                "<b>"+ "Humidity: "+ "</b>" + response.list[1].humidity + "<br>" +
+                "<b>"+ "Wind: " + "</b>" + response.list[1].speed + "<br>" +
+                "<b>"+ "Pressure: "+ "</b>" + response.list[1].pressure);
+            $(".day_three").append(response.list[2].temp.day + " / " + response.list[2].temp.max + "<br>" +
+                "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[2].weather[0].icon + ".png'" + "</p>" + "<br>" +
+                "<b>"+ "Clouds: " + "</b>" + response.list[2].weather[0].description + "<br>" +
+                "<b>"+ "Humidity: "+ "</b>" + response.list[2].humidity + "<br>" +
+                "<b>"+ "Wind: " + "</b>" + response.list[2].speed + "<br>" +
+                "<b>"+ "Pressure: "+ "</b>" + response.list[2].pressure);
+        });
+    });
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
