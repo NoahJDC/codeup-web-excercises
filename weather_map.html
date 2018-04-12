@@ -8,9 +8,8 @@
         .border{
             border: 1px solid black;
             height: 250px;
-            background-color: white;
+            background-color: whitesmoke;
             text-align: center;
-            /*font-weight: bold;*/
         }
         body{
             background-color: skyblue;
@@ -35,14 +34,10 @@
     <div class="row">
         <div id="map_canvas" class="col-lg"></div>
     </div>
-    <div class="row">
-    <!--<button>Enter Coordinates</button>-->
-    <!--<input type="text" id="lat" placeholder="lat">-->
-    <!--<input type="text" id="lon" placeholder="lon    ">-->
-    <!--</div>-->
-</div>
+
 <script src="js/jquery-2.2.4.js"></script>
 <script>
+    <!--Default page on reload-->
     "use strict";
     $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
         APPID: "8f32c0149a278cdb5f995fbb3d98eba5",
@@ -55,19 +50,19 @@
         console.log(response.list[0].temp.max);
         console.log(response.list[0].temp.min);
         $('#cityName').text(response.city.name);
-        $(".day_one").append(response.list[0].temp.day + " / " + response.list[1].temp.max + "<br>" +
+        $(".day_one").append("<h3>" + response.list[0].temp.day+ "&deg;" + " / " + response.list[1].temp.max+ "&deg;"+ "</h3>" + "<br>" +
             "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png'" + "</p>" + "<br>" +
             "<b>"+ "Clouds: " + "</b>" + response.list[0].weather[0].description + "<br>" +
             "<b>"+ "Humidity: "+ "</b>" + response.list[0].humidity + "<br>" +
             "<b>"+ "Wind: " + "</b>" + response.list[0].speed + "<br>" +
             "<b>"+ "Pressure: "+ "</b>" + response.list[0].pressure);
-        $(".day_two").append(response.list[1].temp.day + " / " + response.list[1].temp.max + "<br>" +
+        $(".day_two").append("<h3>" + response.list[1].temp.day+ "&deg;" + " / " + response.list[1].temp.max+ "&deg;"+ "</h3>" + "<br>" +
             "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[1].weather[0].icon + ".png'" + "</p>" + "<br>" +
             "<b>"+ "Clouds: " + "</b>" + response.list[1].weather[0].description + "<br>" +
             "<b>"+ "Humidity: "+ "</b>" + response.list[1].humidity + "<br>" +
             "<b>"+ "Wind: " + "</b>" + response.list[1].speed + "<br>" +
             "<b>"+ "Pressure: "+ "</b>" + response.list[1].pressure);
-        $(".day_three").append(response.list[2].temp.day + " / " + response.list[2].temp.max + "<br>" +
+        $(".day_three").append("<h3>" + response.list[2].temp.day+ "&deg;" + " / " + response.list[1].temp.max+ "&deg;"+ "</h3>" + "<br>" +
             "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[2].weather[0].icon + ".png'" + "</p>" + "<br>" +
             "<b>"+ "Clouds: " + "</b>" + response.list[2].weather[0].description + "<br>" +
             "<b>"+ "Humidity: "+ "</b>" + response.list[2].humidity + "<br>" +
@@ -75,8 +70,9 @@
             "<b>"+ "Pressure: "+ "</b>" + response.list[2].pressure);
     });
 </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD998aCaoKZY5EL4Xx9FaV6iLpwE2QkoT0"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD998aCaoKZY5EL4Xx9FaV6iLpwE2QkoT0"></script>
+<!-- MAP-->
     <script>
     var mapOptions = {
         zoom: 5,
@@ -93,14 +89,14 @@
         map: map,
         draggable: true
     });
-    marker.addListener("dragend", function() {
-        console.log("hello");
+    // EVENT LISTENER FOR MARKER
+    marker.addListener("dragend", function() { //$('button').clicked(function(){
         $("#cityName").empty();
         $(".day_one").empty();
         $(".day_two").empty();
         $(".day_three").empty();
-        var longitude = marker.position.lng();
-        var latitude = marker.position.lat();
+        var longitude = marker.position.lng(); //#long.val()
+        var latitude = marker.position.lat(); // #lat.val()
         $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
             APPID: "8f32c0149a278cdb5f995fbb3d98eba5",
             lat:    latitude, //hard-coded, google maps API
@@ -112,19 +108,19 @@
             console.log(response.list[0].temp.max);
             console.log(response.list[0].temp.min);
             $('#cityName').text(response.city.name)
-            $(".day_one").append(response.list[0].temp.day + " / " + response.list[1].temp.max + "<br>" +
+            $(".day_one").append("<h3>" + response.list[0].temp.day+ "&deg;" + " / " + response.list[1].temp.max+ "&deg;"+ "</h3>" + "<br>" +
                 "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png'" + "</p>" + "<br>" +
                 "<b>"+ "Clouds: " + "</b>" + response.list[0].weather[0].description + "<br>" +
                 "<b>"+ "Humidity: "+ "</b>" + response.list[0].humidity + "<br>" +
                 "<b>"+ "Wind: " + "</b>" + response.list[0].speed + "<br>" +
                 "<b>"+ "Pressure: "+ "</b>" + response.list[0].pressure);
-            $(".day_two").append(response.list[1].temp.day + " / " + response.list[1].temp.max + "<br>" +
+            $(".day_two").append("<h3>" + response.list[1].temp.day+ "&deg;" + " / " + response.list[1].temp.max+ "&deg;"+ "</h3>" + "<br>" +
                 "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[1].weather[0].icon + ".png'" + "</p>" + "<br>" +
                 "<b>"+ "Clouds: " + "</b>" + response.list[1].weather[0].description + "<br>" +
                 "<b>"+ "Humidity: "+ "</b>" + response.list[1].humidity + "<br>" +
                 "<b>"+ "Wind: " + "</b>" + response.list[1].speed + "<br>" +
                 "<b>"+ "Pressure: "+ "</b>" + response.list[1].pressure);
-            $(".day_three").append(response.list[2].temp.day + " / " + response.list[2].temp.max + "<br>" +
+            $(".day_three").append("<h3>" + response.list[2].temp.day+ "&deg;" + " / " + response.list[1].temp.max+ "&deg;"+ "</h3>" + "<br>" +
                 "<p>" + "<img src='http://openweathermap.org/img/w/" + response.list[2].weather[0].icon + ".png'" + "</p>" + "<br>" +
                 "<b>"+ "Clouds: " + "</b>" + response.list[2].weather[0].description + "<br>" +
                 "<b>"+ "Humidity: "+ "</b>" + response.list[2].humidity + "<br>" +
