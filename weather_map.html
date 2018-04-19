@@ -8,7 +8,7 @@
         .border{
             border: 1px solid black;
             height: 250px;
-            background-color: whitesmoke;
+            background-color: white;
             text-align: center;
         }
         body{
@@ -19,6 +19,9 @@
             background-color: white;
             height:300px;
             margin-top: 10px;
+        }
+        #cityName{
+            background-color: red;
         }
     </style>
 </head>
@@ -37,7 +40,7 @@
 
 <script src="js/jquery-2.2.4.js"></script>
 <script>
-    <!--Default page on reload-->
+    // Default page on startup/reload
     "use strict";
     $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
         APPID: "8f32c0149a278cdb5f995fbb3d98eba5",
@@ -74,6 +77,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD998aCaoKZY5EL4Xx9FaV6iLpwE2QkoT0"></script>
 <!-- MAP-->
     <script>
+    $(document).ready(function){
+        $('#cityName').css('background-color', 'blue');
+
+    }
     var mapOptions = {
         zoom: 5,
         center: {

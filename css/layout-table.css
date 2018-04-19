@@ -1,0 +1,36 @@
+.table-head {
+    border: 1px black solid;
+    width: 15%;
+    height: 500px;
+    float: left;
+    background-color: darkolivegreen;
+    text-align: center;
+}
+a{
+    color: black;
+    font-style: oblique;
+}
+.links{
+    margin: 5px 10px 0px 10px;
+    display: inline-block;
+}
+h1 {
+    color: darkgreen;
+}
+.content{
+    border: 1px black solid;
+    background-color: darkseagreen;
+    height: 480px;
+    width: 50%;
+    margin-right: 20px;
+    float: left;
+    padding: 10px;
+}
+.link-space{
+    padding: 10px;
+    margin-top:20px;
+
+}
+.wrapper{
+    margin: 0 auto;
+}

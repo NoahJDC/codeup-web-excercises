@@ -2,9 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        #map-canvas {
+            width: 500px;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="map-canvas"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD998aCaoKZY5EL4Xx9FaV6iLpwE2QkoT0"></script>
+<script>
+    var mapOptions = {
+        zoom: 10,
+        center: {
+            lat: 29.426791,
+            lng: -98.489602
+        },
+
+        
+    };
+    var mapCanvas = document.getElementById('map-canvas');
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    var geocoder = new google.maps.Geocoder();
+    var address = {
+        address: "9921 Frontage Rd, San Antonio, TX 78230"
+    };
+    function callback(results, status) {
+        if (status === google.maps.GeocoderStatus.OK){;
+        console.log(results[0].geometry.location);
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map,
+            animation: google.maps.Animation.DROP
+        });
+        var info = new google.maps.InfoWindow({
+            content: "<center>WASABI</center><br> Delicious sushi with an amazing atmosphere to go with!"
+        });
+        marker.addListener('click', function(){
+            info.open(map, marker);
+        });
+
+    } else
+        {
+           alert("Geocoding was not successful - STATUS: " + status);
+        }
+    };
+
+    var restaurants = [
+        {address: "9921 Frontage Rd, San Antonio, TX 78230"},
+        {address: "22410 US Hwy 281 N, San Antonio, TX 78259"},
+        {address: "849 E Commerce St, San Antonio , TX 78205"}
+    ];
+    restaurants.forEach(function(address){
+        geocoder.geocode(address, callback);
+    });
+
+    // geocoder.geocode(address, callback);
+</script>
 </body>
 </html>

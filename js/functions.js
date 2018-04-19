@@ -1,41 +1,41 @@
 "use strict";
 
-// /**
-//  * TODO:
-//  * Create a function called 'sayHello' that takes a parameter 'name'.
-//  * When called, the function should return a message that says hello to the passed in name.
-//  *
-//  * Example
-//  * > sayHello("codeup") // returns "Hello, codeup!"
-//  */
-// function sayHello(name){
-//     return "Hello, " + name;
-// }
-//
-//
-//     console.log(sayHello("Codeup"));
-//
-//
-// /**
-//  * TODO:
-//  * Call the function 'sayHello' and pass your name as a string literal argument.
-//  * Store the result of the function call in a variable named 'helloMessage'.
-//  *
-//  * console.log 'helloMessage' to check your work
-//  */
-// var helloMessage = sayHello("Noah");
-// console.log(helloMessage);
-//
-//
-//
-// /**
-//  * TODO:
-//  * Store your name as a string in a variable named 'myName', and pass that
-//  * variable to the 'sayHello' function. You should see the same output in the
-//  * console.
-//  */
-//  var myName = "Noah";
-//  console.log(sayHello(myName));
+/**
+ * TODO:
+ * Create a function called 'sayHello' that takes a parameter 'name'.
+ * When called, the function should return a message that says hello to the passed in name.
+ *
+ * Example
+ * > sayHello("codeup") // returns "Hello, codeup!"
+ */
+function sayHello(name){
+    return "Hello, " + name;
+}
+
+
+    console.log(sayHello("Codeup"));
+
+
+/**
+ * TODO:
+ * Call the function 'sayHello' and pass your name as a string literal argument.
+ * Store the result of the function call in a variable named 'helloMessage'.
+ *
+ * console.log 'helloMessage' to check your work
+ */
+var helloMessage = sayHello("Noah");
+console.log(helloMessage);
+
+
+
+/**
+ * TODO:
+ * Store your name as a string in a variable named 'myName', and pass that
+ * variable to the 'sayHello' function. You should see the same output in the
+ * console.
+ */
+ var myName = "Noah";
+ console.log(sayHello(myName));
 //
 //
 // // Don't modify the following line, it generates a random number between 1 and 3
@@ -63,8 +63,8 @@
 //     return random === 2;
 // }
 // console.log(isTwo(random));
-//
-//
+
+
 //
 // /**
 //  * TODO:
@@ -206,4 +206,16 @@ console.log (isRightTriangle(3, 4, 5));
 // console.log(decrement(12));
 //
 // ** check our work, console.log the return value
-
+// var age=20;
+// function sayHello(name){
+//     var age = 21
+//     return ("hi " + name) + " and I am " + age;
+// }
+// console.log(sayHello('Noah'));
+//
+// var a = 2;
+// function test(input){
+//     var a = 3;
+//     return (a + " is my favorite" + " " + input);
+// }
+// console.log(test("number"));

@@ -2,9 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Simple Simon</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+        .square{
+            border: 1px solid black;
+            height: 250px;
+            margin: 10px 10px 10px 10px;
+        }
+        .red{
+            background-color: red;
+        }
+        .light1{
+            background-color: lightcoral;
+
+        }
+        .dark1{
+            background-color: darkred;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .light2{
+            background-color: lightblue;
+        }
+        .dark2{
+            background-color: darkblue;
+        }
+        .green{
+            background-color: green;
+        }
+        .light3{
+            background-color: lightgreen;
+        }
+        .dark3{
+            background-color: darkgreen;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .light4{
+            background-color: lightyellow;
+        }
+        .dark4{
+            background-color: darkgoldenrod;
+        }
+        #gameStart{
+            text-align: center;
+            margin-left: 550px;
+        }
+        .topSquare{
+            margin-left: 350px;
+        }
+        .botSquare{
+            margin-left: 350px;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<div class="container-fluid" id="bigContainer">
+    <div class="row topSquare">
+        <div id="redNumber" class="col-3 square red"></div>
+        <div id="blueNumber" class="col-3 square blue"></div>
+    </div>
+    <div class="row botSquare">
+        <div id="greenNumber" class="col-3 square green"></div>
+        <div id="yellowNumber" class="col-3 square yellow"></div>
+    </div>
+    <button id="gameStart">Start Game</button>
+    <div id="count"></div>
+
+</div>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    var i;
+    var simonSequence =[];
+    var colors = $(".square");
+    $(".red").click(function(){
+        $(this).animate({opacity:.5},100);
+        $(this).animate({opacity:1},200);
+    });
+    $(".blue").click(function(){
+        $(this).animate({opacity:.5},100);
+        $(this).animate({opacity:1},200);
+    });
+    $(".green").click(function(){
+        $(this).animate({opacity:.5},100);
+        $(this).animate({opacity:1},200);
+    });
+    $(".yellow").click(function(){
+        $(this).animate({opacity:.5},100);
+        $(this).animate({opacity:1},200);
+    });
+
+
+    // $("#gameStart").click(function(){
+    //
+    //
+    // });
+
+    function randomNumber(){
+    var randomNumber = Math.floor((Math.random() * 4));
+    var color = colors[randomNumber];
+    simonSequence.push(color);
+    }
+    randomNumber();
+    randomNumber();
+    randomNumber();
+    console.log(simonSequence);
+
+    
+
+
+</script>
 </body>
 </html>

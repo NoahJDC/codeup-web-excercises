@@ -80,7 +80,7 @@ if(answer) {
 //     }
 //
 // }
-// analyzeColor('orange');
+
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -197,7 +197,7 @@ function calculatePercentage(num){
     var percentage;
     switch (num){
         case 0:
-            alert("none apply");
+            alert(totalBill);
             break;
         case 1:
             percentage = .10;

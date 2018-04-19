@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Grid Examples</title>
+    <style>
+        .column{
+            float: left;
+        }
+        .col-1-third{
+            width: 33%;
+            float: left;
+        }
+        .col-2-third{
+            width: 66%;
+            float: left;
+        }
+        section, p {
+            width: 50%;
+            float: left;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <aside class="column col-1-third" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cum exercitationem nostrum placeat? Aspernatur at aut consectetur, consequatur ea earum eos explicabo inventore ipsa, quaerat quasi ratione repellat saepe velit?
+    </aside>
+    <main col-2-third">
+        <section class="column col-1-half">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloremque ducimus expedita nemo optio perspiciatis quae ratione recusandae saepe sequi. Autem dolore, doloremque ex in libero maxime porro similique tempora.
+        </section>
+        <section class="column col-1-half">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet molestiae optio quas quis. Amet beatae cum eaque earum, eum fugit harum laboriosam magnam molestias necessitatibus neque placeat porro quisquam tempore.
+        </section>
+    </main>
+    <footer>
+            <p class="column col-1-half">
+                <a href="#">Previous Lesson</a>
+            </p>
+            <p class="column col-1-half">
+                <a href="#">Next Lesson</a>
+            </p>
+    </footer>
 </body>
 </html>

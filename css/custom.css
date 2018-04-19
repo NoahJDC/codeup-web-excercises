@@ -1,0 +1,25 @@
+.jumbotron{
+    float:left;
+    background-image: url("../imgs/jumbotron.png");
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+}
+
+@media screen and (max-width:768px) {
+    .jumbotron{
+        display:none;
+    }
+
+}
+.form-inline{
+    margin-top:10px;
+}
+.btn-group{
+    float:right;
+}
+
+@media screen and (max-width:768px) {
+    h2{
+        text-align: center;
+    }
+}

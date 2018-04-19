@@ -14,7 +14,7 @@ showMultiplicationTable(2);
 function oddOrEven() {
 
     for (var i = 0; i < 10; i++) {
-        var randomNumber = Math.floor(Math.random() * 180) + 20;
+        var randomNumber = Math.floor(Math.random() * 180) + ;
         if ((randomNumber % 2) === 0) {
         console.log(randomNumber + ' ' + "are evens");
         } else {
