@@ -33,4 +33,12 @@ const users = [
     },
 ];
 
-
+const listItems = users
+    .filter(user => user.languages.length >= 3);
+    console.log(listItems);
+const userEmail = users
+    .map(user => user.email);
+console.log(userEmail);
+const keyobj = users
+    .reduce((prev, current)=>{ prev[current.id] = current; return prev;}, {});
+console.log(keyobj);
